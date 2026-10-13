@@ -1,0 +1,99 @@
+INFO:     Started server process [2068]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started server process [2189]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     192.168.80.1:64526 - "PUT /students/ HTTP/1.1" 405 Method Not Allowed
+INFO:     192.168.80.1:51257 - "POST /students/1 HTTP/1.1" 405 Method Not Allowed
+INFO:     Started server process [2255]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8000): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     192.168.80.1:51260 - "POST /students/1 HTTP/1.1" 405 Method Not Allowed
+INFO:     192.168.80.1:51260 - "POST /students/1 HTTP/1.1" 405 Method Not Allowed
+INFO:     192.168.80.1:51260 - "POST /students/1 HTTP/1.1" 405 Method Not Allowed
+INFO:     192.168.80.1:51260 - "POST /students/1 HTTP/1.1" 405 Method Not Allowed
+INFO:     192.168.80.1:51260 - "POST /students/1 HTTP/1.1" 405 Method Not Allowed
+INFO:     192.168.80.1:51260 - "PUT /students/1 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:51260 - "PUT /students/1 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:51267 - "GET /students/ HTTP/1.1" 200 OK
+INFO:     192.168.80.1:51268 - "PUT /students/ HTTP/1.1" 405 Method Not Allowed
+INFO:     192.168.80.1:49676 - "POST /students/ HTTP/1.1" 200 OK
+INFO:     192.168.80.1:49678 - "PUT /students/1 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:49692 - "PUT /students/1 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:49693 - "GET /students/ HTTP/1.1" 200 OK
+INFO:     192.168.80.1:49693 - "GET /students/ HTTP/1.1" 200 OK
+INFO:     192.168.80.1:49698 - "GET /students/1 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:64118 - "PUT /students/1 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:64118 - "PUT /students/1 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:64118 - "PUT /students/ HTTP/1.1" 405 Method Not Allowed
+INFO:     192.168.80.1:64123 - "PUT /students/1 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:64125 - "POST /students/ HTTP/1.1" 422 Unprocessable Entity
+INFO:     192.168.80.1:64126 - "GET /students/1 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:64126 - "GET /students/1 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:57276 - "GET /students/ HTTP/1.1" 200 OK
+INFO:     192.168.80.1:61750 - "PUT /students/3 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:61750 - "GET /students/ HTTP/1.1" 200 OK
+INFO:     192.168.80.1:51201 - "GET /students/ HTTP/1.1" 200 OK
+INFO:     192.168.80.1:52707 - "PUT /students/3 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:52710 - "GET /students/3 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:52714 - "PUT /students/3 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:52714 - "GET /students/3 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:62287 - "PUT /students/3 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:62287 - "GET /students/3 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:60418 - "PUT /students/3 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:60420 - "GET /students/3 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:60423 - "PUT /students/3 HTTP/1.1" 200 OK
+INFO:     Started server process [2733]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started server process [2737]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ERROR:    [Errno 98] error while attempting to bind on address ('0.0.0.0', 8000): address already in use
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     192.168.80.1:58905 - "GET /students/4 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:58905 - "GET /students/4 HTTP/1.1" 200 OK
+INFO:     192.168.80.1:58905 - "PUT /students/4 HTTP/1.1" 200 OK
+INFO:     Started server process [2509]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:47490 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53188 - "GET / HTTP/1.1" 200 OK
+INFO:     Started server process [2567]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:41494 - "GET / HTTP/1.1" 200 OK
+INFO:     192.168.80.1:0 - "GET / HTTP/1.0" 200 OK
+INFO:     192.168.80.1:0 - "GET /docs HTTP/1.0" 200 OK
+/root/student_api/venv/lib64/python3.9/site-packages/fastapi/openapi/utils.py:255: UserWarning: Duplicate Operation ID create_student_students__post for function create_student at /root/student_api/routers/students.py
+  warnings.warn(message, stacklevel=1)
+/root/student_api/venv/lib64/python3.9/site-packages/fastapi/openapi/utils.py:255: UserWarning: Duplicate Operation ID get_students_students__get for function get_students at /root/student_api/routers/students.py
+  warnings.warn(message, stacklevel=1)
+/root/student_api/venv/lib64/python3.9/site-packages/fastapi/openapi/utils.py:255: UserWarning: Duplicate Operation ID get_student_students__student_id__get for function get_student at /root/student_api/routers/students.py
+  warnings.warn(message, stacklevel=1)
+/root/student_api/venv/lib64/python3.9/site-packages/fastapi/openapi/utils.py:255: UserWarning: Duplicate Operation ID update_student_students__student_id__put for function update_student at /root/student_api/routers/students.py
+  warnings.warn(message, stacklevel=1)
+/root/student_api/venv/lib64/python3.9/site-packages/fastapi/openapi/utils.py:255: UserWarning: Duplicate Operation ID delete_student_students__student_id__delete for function delete_student at /root/student_api/routers/students.py
+  warnings.warn(message, stacklevel=1)
+INFO:     192.168.80.1:0 - "GET /openapi.json HTTP/1.0" 200 OK
+INFO:     192.168.80.1:0 - "GET /students/ HTTP/1.0" 200 OK
+INFO:     192.168.80.1:0 - "GET /students/ HTTP/1.0" 200 OK
+INFO:     192.168.80.1:0 - "GET /students/ HTTP/1.0" 200 OK
+INFO:     192.168.80.1:0 - "GET /students/ HTTP/1.0" 200 OK
+INFO:     192.168.80.1:0 - "GET /students/ HTTP/1.0" 200 OK
+INFO:     192.168.80.1:0 - "GET /students/ HTTP/1.0" 200 OK
+INFO:     192.168.80.1:0 - "GET /students/7 HTTP/1.0" 200 OK
+INFO:     192.168.80.1:0 - "PUT /students/ HTTP/1.0" 405 Method Not Allowed
+INFO:     192.168.80.1:0 - "GET /students/7 HTTP/1.0" 200 OK
+INFO:     192.168.80.1:0 - "GET /students/7 HTTP/1.0" 200 OK
+INFO:     192.168.80.1:0 - "POST /students/ HTTP/1.0" 200 OK
