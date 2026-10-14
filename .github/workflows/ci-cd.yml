@@ -31,4 +31,4 @@ jobs:
         run: python -m compileall -q .
 
       - name: Build Docker image
-        run: docker build -t student-management-api:ci .
+        run: docker build -t ankitachoudhary2005/student-api:latest .
