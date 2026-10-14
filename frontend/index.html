@@ -1,181 +1,212 @@
- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f5f7fb">
-    <title>Student Management | Dashboard</title>
+    <title>Student Management Dashboard</title>
     <link rel="stylesheet" href="/ui/style.css">
 </head>
 <body>
     <div class="app-layout">
+
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <a class="brand" href="/ui/">
-                <span class="brand-icon">S</span>
-                <span>Student<span class="brand-light">Hub</span></span>
-            </a>
+            <div class="brand">
+                <div class="brand-icon">S</div>
+                <div>
+                    <h2>StudentHub</h2>
+                    <p>Management Portal</p>
+                </div>
+            </div>
 
-            <p class="nav-label">WORKSPACE</p>
-            <a class="nav-item active" href="#dashboard">
-                <span class="nav-icon">▦</span> Dashboard
-            </a>
-            <a class="nav-item" href="#students">
-                <span class="nav-icon">♙</span> Students
-            </a>
+            <p class="nav-heading">MENU</p>
+            <nav class="navigation">
+                <a class="nav-link active" href="/ui/">
+                    <span>▦</span> Dashboard
+                </a>
+                <a class="nav-link" href="#records">
+                    <span>♙</span> Students
+                </a>
+                <a class="nav-link" href="#add-student">
+                    <span>＋</span> Add Student
+                </a>
+            </nav>
 
-            <div class="sidebar-bottom">
-                <div class="profile-avatar">SM</div>
-                <div class="profile-info">
-                    <strong>Administrator</strong>
-                    <span>Student portal</span>
+            <div class="sidebar-footer">
+                <div class="status-dot"></div>
+                <div>
+                    <strong>API Project</strong>
+                    <p>FastAPI + PostgreSQL</p>
                 </div>
             </div>
         </aside>
 
-        <main class="main-content" id="dashboard">
+        <!-- Main content -->
+        <main class="main-content">
             <header class="topbar">
                 <div>
-                    <p class="eyebrow">OVERVIEW</p>
+                    <p class="breadcrumb">Pages / Dashboard</p>
                     <h1>Student Dashboard</h1>
-                    <p class="subtitle">Manage your student records in one place.</p>
+                    <p class="subtitle">
+                        Manage your student records in one place.
+                    </p>
                 </div>
-                <div class="status-pill">
-                    <span class="status-dot"></span> Management portal
+                <div class="profile">
+                    <div class="avatar">A</div>
+                    <div>
+                        <strong>Administrator</strong>
+                        <p>Project Admin</p>
+                    </div>
                 </div>
             </header>
 
-            <section class="stats-grid" aria-label="Student statistics">
+            <!-- Statistics -->
+            <section class="stats-grid">
                 <article class="stat-card">
                     <div class="stat-top">
-                        <span class="stat-label">Total Students</span>
                         <span class="stat-icon blue">♙</span>
+                        <span class="stat-label">OVERVIEW</span>
                     </div>
-                    <p class="stat-number" id="totalStudents">—</p>
-                    <p class="stat-note">Records in the current list</p>
+                    <p class="stat-title">Total Students</p>
+                    <h2>—</h2>
+                    <p class="stat-note">Connected to student database</p>
                 </article>
 
                 <article class="stat-card">
                     <div class="stat-top">
-                        <span class="stat-label">Average Age</span>
                         <span class="stat-icon purple">⌁</span>
+                        <span class="stat-label">ANALYTICS</span>
                     </div>
-                    <p class="stat-number" id="averageAge">—</p>
-                    <p class="stat-note">Based on available records</p>
+                    <p class="stat-title">Average Age</p>
+                    <h2>—</h2>
+                    <p class="stat-note">Calculated from student records</p>
                 </article>
 
                 <article class="stat-card">
                     <div class="stat-top">
-                        <span class="stat-label">Youngest Student</span>
-                        <span class="stat-icon green">↗</span>
+                        <span class="stat-icon orange">◷</span>
+                        <span class="stat-label">INSIGHTS</span>
                     </div>
-                    <p class="stat-number" id="youngestAge">—</p>
-                    <p class="stat-note">Youngest recorded age</p>
+                    <p class="stat-title">Youngest Student</p>
+                    <h2>—</h2>
+                    <p class="stat-note">Based on available records</p>
                 </article>
             </section>
 
-            <section class="content-grid" id="students">
-                <article class="panel records-panel">
-                    <div class="panel-heading">
-                        <div>
-                            <h2>Student Records</h2>
-                            <p class="subtitle">View and search your student database.</p>
+            <!-- Student records -->
+            <section class="panel records-panel" id="records">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Student Records</h2>
+                        <p>View and search student information.</p>
+                    </div>
+                    <span class="record-badge">Student Directory</span>
+                </div>
+
+                <div class="table-toolbar">
+                    <div class="search-box">
+                        <span>⌕</span>
+                        <input
+                            type="search"
+                            id="studentSearch"
+                            placeholder="Search students..."
+                            aria-label="Search students"
+                        >
+                    </div>
+                    <span class="table-hint">All records</span>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>STUDENT ID</th>
+                                <th>STUDENT NAME</th>
+                                <th>AGE</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentTable">
+                            <tr>
+                                <td colspan="4" class="empty-state">
+                                    <div class="empty-icon">♙</div>
+                                    <strong>No student records loaded</strong>
+                                    <p>
+                                        Connect this dashboard to your
+                                        FastAPI endpoint to display records.
+                                    </p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">
+                    <span>Student directory</span>
+                    <span>Database connection pending</span>
+                </div>
+            </section>
+
+            <!-- Add student form -->
+            <section class="panel form-panel" id="add-student">
+                <div class="panel-heading">
+                    <div>
+                        <h2>Add New Student</h2>
+                        <p>Enter student information below.</p>
+                    </div>
+                    <span class="form-icon">＋</span>
+                </div>
+
+                <form id="studentForm">
+                    <div class="form-fields">
+                        <div class="field">
+                            <label for="studentName">Student Name</label>
+                            <input
+                                type="text"
+                                id="studentName"
+                                placeholder="Enter full name"
+                                required
+                            >
                         </div>
-                        <span class="record-count" id="recordCount">0 records</span>
-                    </div>
 
-                    <div class="toolbar">
-                        <label class="search-box">
-                            <span aria-hidden="true">⌕</span>
-                            <input id="studentSearch" type="search"
-                                   placeholder="Search students..."
-                                   aria-label="Search students">
-                        </label>
-                    </div>
-
-                    <div id="alertBox" class="alert" role="status"
-                         aria-live="polite" hidden></div>
-
-                    <div class="table-wrapper">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>STUDENT</th>
-                                    <th>AGE</th>
-                                    <th>ACTIONS</th>
-                                </tr>
-                            </thead>
-                            <tbody id="studentTableBody">
-                                <tr>
-                                    <td colspan="3" class="empty-state">
-                                        <span class="empty-icon">♙</span>
-                                        <strong>No records loaded yet</strong>
-                                        <span>Connect your existing API to display students here.</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <p class="table-footer">
-                        Student information is displayed here when connected to the API.
-                    </p>
-                </article>
-
-                <aside class="panel form-panel">
-                    <div class="panel-heading">
-                        <div>
-                            <span class="form-step">STUDENT DETAILS</span>
-                            <h2 id="formTitle">Add a student</h2>
-                            <p class="subtitle">Enter the student's information below.</p>
+                        <div class="field">
+                            <label for="studentAge">Age</label>
+                            <input
+                                type="number"
+                                id="studentAge"
+                                placeholder="Enter age"
+                                min="1"
+                                required
+                            >
                         </div>
                     </div>
 
-                    <form id="studentForm">
-                        <label for="studentName">Full name</label>
-                        <input id="studentName" name="name" type="text"
-                               placeholder="e.g. Ananya Sharma"
-                               minlength="1" required>
-
-                        <label for="studentAge">Age</label>
-                        <input id="studentAge" name="age" type="number"
-                               placeholder="e.g. 21" min="1" required>
-
-                        <button class="primary-button" type="submit" disabled>
-                            <span>＋</span> Add Student
-                        </button>
-
-                        <p class="form-hint">
-                            API integration is needed to save changes to the database.
+                    <div class="form-actions">
+                        <p>
+                            Saving is unavailable until the API is connected.
                         </p>
-                    </form>
-                </aside>
+                        <button type="button" class="primary-button" disabled>
+                            ＋ Add Student
+                        </button>
+                    </div>
+                </form>
             </section>
 
             <footer class="page-footer">
-                <span>StudentHub</span>
-                <span>Student Management System</span>
+                StudentHub · Student Management System
+                <span>Built with FastAPI &amp; PostgreSQL</span>
             </footer>
         </main>
     </div>
 
     <script>
-        // Local search and statistics for rows already rendered in the table.
-        // Connect your existing API logic before enabling database operations.
         const searchInput = document.getElementById("studentSearch");
-        const tableBody = document.getElementById("studentTableBody");
-
-        searchInput.addEventListener("input", () => {
-            const query = searchInput.value.trim().toLowerCase();
-
-            Array.from(tableBody.querySelectorAll("tr")).forEach(row => {
-                if (row.querySelector(".empty-state")) return;
+        searchInput.addEventListener("input", function () {
+            const query = this.value.toLowerCase();
+            document.querySelectorAll("#studentTable tr").forEach(row => {
                 row.hidden = !row.textContent.toLowerCase().includes(query);
             });
         });
-
-        // Keep the form disabled until the existing API routes and handlers
-        // are connected. This avoids implying that a student was saved.
     </script>
 </body>
 </html>
