@@ -1,123 +1,172 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Student Management System</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <link rel="stylesheet" href="/ui/style.css">
 </head>
 <body>
- 
-  <header class="header">
-    <div class="container header-inner">
-      <div class="brand">
-        <div class="logo">SMS</div>
-        <div>
-          <h1 class="brand-title">Student Management System</h1>
-          <p class="brand-sub">Manage your students efficiently</p>
-        </div>
-      </div>
-      <span class="header-count" id="headerCount">0 Students Registered</span>
-    </div>
-  </header>
- 
-  <main class="container">
- 
-    <section class="hero">
-      <svg class="hero-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
-      <div>
-        <h2>Student Management System</h2>
-        <p>Welcome back! Here's your dashboard overview.</p>
-      </div>
-    </section>
- 
-    <!-- Stats (calculated from the API data) -->
-    <section class="stats">
-      <article class="card stat">
-        <div class="stat-top"><span>Total Students</span><span class="icon-circle blue">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span></div>
-        <div class="stat-value" id="statTotal">0</div>
-        <div class="stat-note">Registered students</div>
-      </article>
-      <article class="card stat">
-        <div class="stat-top"><span>Average Age</span><span class="icon-circle green">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg></span></div>
-        <div class="stat-value" id="statAvg">–</div>
-        <div class="stat-note">Across all students</div>
-      </article>
-      <article class="card stat">
-        <div class="stat-top"><span>Youngest</span><span class="icon-circle purple">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span></div>
-        <div class="stat-value" id="statMin">–</div>
-        <div class="stat-note">Lowest age</div>
-      </article>
-      <article class="card stat">
-        <div class="stat-top"><span>Oldest</span><span class="icon-circle red">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span></div>
-        <div class="stat-value" id="statMax">–</div>
-        <div class="stat-note">Highest age</div>
-      </article>
-    </section>
- 
-    <div class="layout">
- 
-      <!-- Add / Edit form (POST and PUT) -->
-      <section class="card panel">
-        <h3 id="formTitle">Add New Student</h3>
-        <p class="panel-sub" id="formSub">Register a new student</p>
- 
-        <form id="studentForm" novalidate>
-          <input type="hidden" id="studentId" />
- 
-          <label for="name">Name</label>
-          <input type="text" id="name" maxlength="100" placeholder="e.g. Aarav Sharma" required />
- 
-          <label for="age">Age</label>
-          <input type="number" id="age" min="1" placeholder="e.g. 20" required />
- 
-          <p class="form-error" id="formError" role="alert"></p>
- 
-          <div class="form-actions">
-            <button type="submit" class="btn primary" id="submitBtn">Add Student</button>
-            <button type="button" class="btn" id="cancelBtn" hidden>Cancel</button>
-          </div>
-        </form>
-      </section>
- 
-      <!-- Students table (GET, PUT, DELETE) -->
-      <section class="card panel">
-        <div class="panel-head">
-          <div>
-            <h3>All Students</h3>
-            <p class="panel-sub">Browse and manage student records</p>
-          </div>
-          <input type="search" id="search" class="search" placeholder="Search by name…" />
-        </div>
- 
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr><th>ID</th><th>Name</th><th>Age</th><th class="right">Actions</th></tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
-          </table>
-        </div>
-        <p class="empty" id="emptyMsg" hidden>No students found.</p>
-      </section>
- 
-    </div>
-  </main>
- 
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span>© 2024 Student Management System.</span>
-      <span id="footerCount">Total: 0</span>
-    </div>
-  </footer>
- 
-  <div class="toast" id="toast" role="status"></div>
- 
-  <script src="app.js"></script>
+
+    <header>
+        <h1>Student Management</h1>
+        <p>Manage your student records easily</p>
+    </header>
+
+    <main class="container">
+
+        <section class="card">
+            <h2>Add a Student</h2>
+
+            <form id="studentForm">
+                <div class="form-group">
+                    <label for="name">Student Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter student name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Student Age</label>
+                    <input
+                        type="number"
+                        id="age"
+                        placeholder="Enter student age"
+                        min="1"
+                        required
+                    >
+                </div>
+
+                <button type="submit">Add Student</button>
+                <p id="message"></p>
+            </form>
+        </section>
+
+        <section class="card">
+            <div class="table-header">
+                <h2>Student Records</h2>
+                <button type="button" id="refreshBtn" class="secondary">
+                    Refresh
+                </button>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTable">
+                        <tr>
+                            <td colspan="3">Loading students...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Student Management API | FastAPI + PostgreSQL</p>
+    </footer>
+
+    <script>
+        const API_URL = "/students";
+
+        const form = document.getElementById("studentForm");
+        const table = document.getElementById("studentTable");
+        const message = document.getElementById("message");
+
+        async function loadStudents() {
+            table.innerHTML =
+                '<tr><td colspan="3">Loading students...</td></tr>';
+
+            try {
+                const response = await fetch(API_URL);
+
+                if (!response.ok) {
+                    throw new Error("Could not load students");
+                }
+
+                const students = await response.json();
+                table.innerHTML = "";
+
+                if (students.length === 0) {
+                    table.innerHTML =
+                        '<tr><td colspan="3">No students found.</td></tr>';
+                    return;
+                }
+
+                students.forEach(student => {
+                    const row = document.createElement("tr");
+
+                    [student.id, student.name, student.age].forEach(value => {
+                        const cell = document.createElement("td");
+                        cell.textContent = value;
+                        row.appendChild(cell);
+                    });
+
+                    table.appendChild(row);
+                });
+            } catch (error) {
+                table.innerHTML =
+                    '<tr><td colspan="3">Unable to load students. Check the API.</td></tr>';
+                console.error(error);
+            }
+        }
+
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById("name").value.trim();
+            const age = Number(document.getElementById("age").value);
+
+            if (!name || !Number.isInteger(age) || age <= 0) {
+                message.textContent = "Enter a valid name and age.";
+                message.className = "error";
+                return;
+            }
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ name, age })
+                });
+
+                if (!response.ok) {
+                    throw new Error("Failed to add student");
+                }
+
+                message.textContent = "Student added successfully!";
+                message.className = "success";
+                form.reset();
+                await loadStudents();
+            } catch (error) {
+                message.textContent =
+                    "Could not add student. Check your API endpoint.";
+                message.className = "error";
+                console.error(error);
+            }
+        });
+
+        document.getElementById("refreshBtn").addEventListener(
+            "click", loadStudents
+        );
+
+        loadStudents();
+    </script>
+
 </body>
 </html>
+```
