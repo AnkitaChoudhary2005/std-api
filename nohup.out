@@ -97,3 +97,16 @@ INFO:     192.168.80.1:0 - "PUT /students/ HTTP/1.0" 405 Method Not Allowed
 INFO:     192.168.80.1:0 - "GET /students/7 HTTP/1.0" 200 OK
 INFO:     192.168.80.1:0 - "GET /students/7 HTTP/1.0" 200 OK
 INFO:     192.168.80.1:0 - "POST /students/ HTTP/1.0" 200 OK
+INFO:     Started server process [3970]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     192.168.80.1:58440 - "GET /ui/ HTTP/1.1" 304 Not Modified
+INFO:     192.168.80.1:58440 - "GET /ui/style.css HTTP/1.1" 200 OK
+INFO:     192.168.80.1:58440 - "GET /students HTTP/1.1" 307 Temporary Redirect
+INFO:     192.168.80.1:58440 - "GET /students/ HTTP/1.1" 200 OK
+INFO:     192.168.80.1:65035 - "GET /students HTTP/1.1" 307 Temporary Redirect
+INFO:     192.168.80.1:65035 - "GET /students/ HTTP/1.1" 200 OK
+INFO:     192.168.80.1:65035 - "GET /ui/ HTTP/1.1" 304 Not Modified
+INFO:     192.168.80.1:65035 - "GET /students HTTP/1.1" 307 Temporary Redirect
+INFO:     192.168.80.1:65035 - "GET /students/ HTTP/1.1" 200 OK
