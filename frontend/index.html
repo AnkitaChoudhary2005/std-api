@@ -55,20 +55,31 @@
             </div>
 
             <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Age</th>
-                        </tr>
-                    </thead>
-                    <tbody id="studentTable">
-                        <tr>
-                            <td colspan="3">Loading students...</td>
-                        </tr>
-                    </tbody>
+                
+           <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Action</th>
+               </tr>
+              </thead> 
+
+               <table>
+                     <thead>
+                      <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Age</th>
+                      </tr>
+                      </thead> 
+
+                  <tbody id="studentTable">
+                 </tbody>
                 </table>
+          
+              </table>
             </div>
         </section>
 
@@ -165,6 +176,53 @@
         );
 
         loadStudents();
+         const row = document.createElement("tr");
+
+const idCell = document.createElement("td");
+idCell.textContent = student.id;
+
+const nameCell = document.createElement("td");
+nameCell.textContent = student.name;
+
+const ageCell = document.createElement("td");
+ageCell.textContent = student.age;
+
+const actionCell = document.createElement("td");
+
+const deleteButton = document.createElement("button");
+deleteButton.textContent = "Delete";
+deleteButton.className = "delete-btn";
+
+deleteButton.addEventListener("click", async () => {
+    const confirmed = confirm(
+        `Are you sure you want to delete ${student.name}?`
+    );
+
+    if (!confirmed) return;
+
+    try {
+        const response = await fetch(
+            `${API_URL}/${student.id}`,
+            { method: "DELETE" }
+        );
+
+        if (!response.ok) {
+            const error = await response.text();
+            throw new Error(error || "Failed to delete student");
+        }
+
+        alert("Student deleted successfully!");
+        await loadStudents();
+
+    } catch (error) {
+        alert("Delete failed: " + error.message);
+    }
+});
+
+actionCell.appendChild(deleteButton);
+
+row.append(idCell, nameCell, ageCell, actionCell);
+studentTable.appendChild(row);
     </script>
 
 </body>
