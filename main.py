@@ -3,7 +3,7 @@ from fastapi import FastAPI
 
 from fastapi.staticfiles import StaticFiles
 
-from routers.students import routers as students_router
+from routers.students import router as students_router
 
 
 app = FastAPI(title="Student Management API")
