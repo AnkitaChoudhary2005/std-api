@@ -4,3 +4,6 @@ uvicorn[standard]
 SQLAlchemy
 psycopg[binary]
 python-dotenv
+pytest
+httpx
+
