@@ -61,12 +61,3 @@ jobs:
           context: .
           push: true
           tags: ankitachoudhary2005/std-api:latest
-
-      - name: Check Git and update main
-        run: 
-          git remote -v
-          git status
-          git fetch origin main
-          git switch main
-          git pull --ff-only origin main
-
