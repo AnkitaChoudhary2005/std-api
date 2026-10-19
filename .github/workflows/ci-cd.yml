@@ -63,7 +63,7 @@ jobs:
           tags: ankitachoudhary2005/std-api:latest
 
       - name: Check Git and update main
-        run: |
+        run: 
           git remote -v
           git status
           git fetch origin main
