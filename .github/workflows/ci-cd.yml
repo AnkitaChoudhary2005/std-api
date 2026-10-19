@@ -1,3 +1,4 @@
+
 name: FastAPI CI/CD
 
 on:
@@ -36,18 +37,6 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t ankitachoudhary2005/std-api:latest .
-     
-      - name: Create Docker network
-        run: docker network create student-api-network
-
-      - name: Start Docker container
-        run: |
-          docker run -d \ --name student-api-container \ --network student-api-network \ -p 8000:8000 \ ankitachoudhary2005/std-api:latest
-
-      - name: Check container status
-        run: |
-          docker ps
-          docker logs student-api-container
 
   publish:
     needs: test
@@ -73,3 +62,4 @@ jobs:
           context: .
           push: true
           tags: ankitachoudhary2005/std-api:latest
+
